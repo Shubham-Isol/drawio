@@ -323,6 +323,14 @@ abstract public class AbsAuthServlet extends HttpServlet
 			}
 			else
 			{
+				log.log(Level.INFO, "********************Caller*******************");
+				log.log(Level.INFO, "CONFIG.AUTH_SERVICE_URL:" + CONFIG.AUTH_SERVICE_URL);
+				log.log(Level.INFO, "code:" + code);
+				log.log(Level.INFO, "refreshToken:" + refreshToken);
+				log.log(Level.INFO, "secret:" + secret);
+				log.log(Level.INFO, "client:" + client);
+				log.log(Level.INFO, "successRedirect:" + successRedirect);
+				
 				Response authResp = contactOAuthServer(CONFIG.AUTH_SERVICE_URL, code, refreshToken, secret, client, redirectUri, successRedirect != null, 1);
 				
 				response.setStatus(authResp.status);
@@ -401,6 +409,16 @@ abstract public class AbsAuthServlet extends HttpServlet
 	private Response contactOAuthServer(String authSrvUrl, String code, String refreshToken, String secret,
 			String client, String redirectUri,boolean directResp, int retryCount)
 	{
+		log.log(Level.INFO, "*****************************");
+		log.log(Level.INFO, "authSrvUrl:" + authSrvUrl);
+		log.log(Level.INFO, "code:" + code);
+		log.log(Level.INFO, "refreshToken:" + refreshToken);
+		log.log(Level.INFO, "secret:" + secret);
+		log.log(Level.INFO, "client:" + client);
+		log.log(Level.INFO, "redirectUri:" + redirectUri);
+		log.log(Level.INFO, "directResp:" + directResp);
+		log.log(Level.INFO, "retryCount:" + retryCount);
+
 		HttpURLConnection con = null;
 		Response response = new Response();
 		
