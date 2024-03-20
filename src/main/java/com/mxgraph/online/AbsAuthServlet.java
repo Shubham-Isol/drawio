@@ -525,6 +525,7 @@ abstract public class AbsAuthServlet extends HttpServlet
 			String accessToken = getAccessToken(json);
 			int expiresIn = getExpiresIn(json);
 			response.refreshToken = getRefreshToken(json);
+			log.log(Level.INFO, "generated refresh token: " + response.refreshToken);
 			response.accessToken = accessToken;
 			
 			JsonObject respObj = new JsonObject();
