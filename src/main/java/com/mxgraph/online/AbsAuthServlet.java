@@ -531,6 +531,7 @@ abstract public class AbsAuthServlet extends HttpServlet
 			
 			JsonObject respObj = new JsonObject();
 			respObj.addProperty("access_token", accessToken);
+			respObj.addProperty("refresh_token", response.refreshToken);
 			
 			if (expiresIn > -1)
 			{
