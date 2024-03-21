@@ -337,6 +337,7 @@ abstract public class AbsAuthServlet extends HttpServlet
 				
 				if (authResp.refreshToken != null)
 				{
+					log.log(Level.INFO, "authResponse refresh_token: " + authResp.refreshToken);
 					addCookie(tokenCookie, getRefreshTokenCookie(authResp.refreshToken, tokenCookieVal, authResp.accessToken), TOKEN_COOKIE_AGE, response);
 				}
 				
